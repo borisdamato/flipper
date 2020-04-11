@@ -596,7 +596,8 @@ class DataDescriptionContainer extends Component<{
 
       case 'text':
       case 'string':
-        if (val.startsWith('http://') || val.startsWith('https://')) {
+        const isUrl = val.startsWith('http://') || val.startsWith('https://');
+        if (editable && isUrl) {
           return (
             <>
               <Link href={val}>{val}</Link>
